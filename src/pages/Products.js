@@ -5,7 +5,7 @@ const Products = ({ products, addToCart }) => {
   return (
     <div>
       <h1>Products</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+      <div className="products-grid">
         {products.map(product => (
           <ProductCard key={product.id} product={product} addToCart={addToCart} />
         ))}

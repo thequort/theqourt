@@ -8,6 +8,7 @@ import Admin from './pages/admin/Admin';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
 import { firestore } from './firebase';
+import './styles.css';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -33,14 +34,16 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products products={products} addToCart={addToCart} />} />
-        <Route path="/product/:id" element={<ProductDetail products={products} addToCart={addToCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
-        <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products products={products} addToCart={addToCart} />} />
+          <Route path="/product/:id" element={<ProductDetail products={products} addToCart={addToCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+          <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
